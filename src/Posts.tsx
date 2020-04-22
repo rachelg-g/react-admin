@@ -28,13 +28,17 @@ export const PostList = (props) => {
   )
 }
 
+const PostTitle = ({ record }) => {
+  return <span>Post {record ? `"${record.title}"` : ''}</span>
+}
+
 export const PostEdit = (props) => {
   return (
-    <Edit {...props}>
+    <Edit title={<PostTitle record={props} />} {...props}>
       <SimpleForm>
         <TextInput source="id" />
         <ReferenceInput source="userId" reference="users">
-          <TextInput source="name" />
+          <SelectInput source="name" />
         </ReferenceInput>
         <TextInput source="title" />
         <TextInput multiline source="body" />
