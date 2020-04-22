@@ -4,11 +4,12 @@ import jsonServerProvider from 'ra-data-json-server'
 import UserList from './User'
 import { PostList, PostEdit, PostCreate } from './Posts'
 import { Book, Group } from '@material-ui/icons'
+import { Dashboard } from 'Dashboard'
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com')
 const App = () => {
   return (
-    <Admin dataProvider={dataProvider}>
+    <Admin dashboard={Dashboard} dataProvider={dataProvider}>
       <Resource
         name="posts"
         icon={Book}
